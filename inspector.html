@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+    <title  class="centerdiv">Salesforce Permission Inspector</title> 
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Salesforce Permission Inspector</h1>
+    <div class="theme-switch-wrapper">
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+      <span class="toggle-label">Dark Mode</span>
+    </div>
+  </div>
+  </div>
+
+  <div class="container">
+    <div class="controls">
+      <div class="input-group">
+        <label>Metadata Type:</label>
+        <select id="metaType">
+          <option value="Field">Custom Field (FieldPermissions)</option>
+          <option value="Object">Object (ObjectPermissions)</option>
+          <option value="ApexClass">Apex Class</option>
+          <option value="ApexPage">Visualforce Page</option>
+          <option value="Flow">Flow (FlowDefinition)</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>API Name:</label>
+        <input type="text" id="apiName" placeholder="e.g. Account.Industry">
+      </div>
+
+      <button id="btnSearch" class="primary-btn">Search Permissions</button>
+    </div>
+
+    <div id="status" class="status-bar"></div>
+
+    <div class="tables-container hidden" id="resultsArea">
+      
+      <!-- search profile -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Profiles</h2>
+          <input type="text" id="profileSearch" class="mini-search" placeholder="Filter Profiles...">
+        </div>
+        <div class="table-wrapper">
+          <table id="profileTable">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- search ps -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Permission Sets</h2>
+          <input type="text" id="psSearch" class="mini-search" placeholder="Filter Permission Sets...">
+        </div>
+        <div class="table-wrapper">
+          <table id="psTable">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="inspector.js"></script>
+
+</body>
+</html>

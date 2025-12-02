@@ -1,0 +1,193 @@
+:root {
+  --bg: #f4f6f9; --card: #ffffff; --text: #16325c; --border: #d8dde6;
+}
+[data-theme="dark"] {
+  --bg: #1e1e1e; --card: #2d2d2d; --text: #e1e1e1; --border: #444;
+}
+
+body { background: var(--bg); color: var(--text); font-family: system-ui; padding: 20px; }
+.container { max-width: 1200px; margin: 0 auto; }
+
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.controls { background: var(--card); padding: 20px; border-radius: 8px; display: flex; gap: 15px; align-items: flex-end; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+.input-group { display: flex; flex-direction: column; flex: 1; }
+input, select { padding: 10px; margin-top: 5px; border: 1px solid var(--border); background: var(--card); color: var(--text); }
+
+.tables-container { display: flex; gap: 20px; margin-top: 20px; }
+.panel { flex: 1; background: var(--card); padding: 15px; border-radius: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border-bottom: 1px solid var(--border); padding: 10px; text-align: left; }
+
+.hidden { display: none; }
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.mini-search {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 12px;
+  width: 140px;
+  outline: none;
+  background: var(--bg);
+  color: var(--text);
+  transition: width 0.2s;
+}
+
+.mini-search:focus {
+  width: 180px;
+  border-color: #0070d2;
+}
+
+/* Ensure tables fit nicely */
+.panel {
+  flex: 1;
+  background: var(--card);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  overflow: hidden; /* Prevents spillover */
+}
+
+.table-wrapper {
+  max-height: 600px; /* Makes the table scrollable if too long */
+  overflow-y: auto;
+}
+
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-label {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 24px;
+  position: relative;
+  width: 50px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 16px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 16px;
+}
+
+input:checked + .slider {
+  background-color: #0070d2;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Primary Search Button */
+.primary-btn {
+  background: linear-gradient(135deg, #0070d2 0%, #005fb2 100%);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 112, 210, 0.3);
+  text-transform: uppercase;
+  align-self: flex-end; /* Aligns it nicely with inputs */
+  height: 42px; /* Matches input height visually */
+  min-width: 160px;
+}
+
+.primary-btn:hover {
+  background: linear-gradient(135deg, #005fb2 0%, #004085 100%);
+  box-shadow: 0 4px 8px rgba(0, 112, 210, 0.4);
+  transform: translateY(-1px);
+}
+
+.primary-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 112, 210, 0.3);
+}
+
+.primary-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 112, 210, 0.4);
+}
+
+/* Dark Mode Adjustments for Button */
+[data-theme="dark"] .primary-btn {
+  background: linear-gradient(135deg, #1b96ff 0%, #0070d2 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .primary-btn:hover {
+  background: linear-gradient(135deg, #0070d2 0%, #005fb2 100%);
+}
+.centerdiv {
+  display: flex;
+  justify-content: center; 
+  align-items: center;      
+}
+
+td a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+td a:hover {
+  text-decoration: underline;
+  color: #0070d2;
+}
+
+[data-theme="dark"] td a:hover {
+  color: #1b96ff;
+}
+
