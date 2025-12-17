@@ -2,14 +2,25 @@ import { renderMergedTables } from './tableRender.js';
 import { fetchPermissionData, fetchProfilesAndPermissions } from './getData.js';
 
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+console.log('toggleSwitch:', toggleSwitch);
+
+chrome.storage.local.get(['theme'], (result) => {
+    const currentTheme = result.theme || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+    }
+});
 
 function switchTheme(e) {
-    if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-    }    
+    console.log('switchTheme called');
+    const newTheme = e.target.checked ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    chrome.storage.local.set({ theme: newTheme }, () => {
+        console.log('Theme on storage:', newTheme);
+    });
 }
+
 toggleSwitch.addEventListener('change', switchTheme, false);
 
 //table filter logic

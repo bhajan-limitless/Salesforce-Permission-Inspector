@@ -20,7 +20,8 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "Open Permission Auditor"
+    "default_title": "Open Salesforce Permission Inspector",
+    "default_popup": "inspector.html"
   },
   "content_scripts": [
     {
